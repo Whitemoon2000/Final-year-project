@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Game',
+    'quiz',
+    'questions',
+    'result',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS =[STATIC_DIR,]
+STATICFILES_DIRS =[
+    STATIC_DIR,
+    BASE_DIR / 'quiz'/'static',
+    ]
