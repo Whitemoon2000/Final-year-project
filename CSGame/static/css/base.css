@@ -5,4 +5,26 @@ body{
     color: rgb(255, 255, 255);
 }
 
- 
+.modal-title{
+    color:black;
+}
+
+.h5{
+    color: black;
+}
+
+hr{
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}
+.modal-button{
+    background-color: #006af5; 
+    border: 1px;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+  }

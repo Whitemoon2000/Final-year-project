@@ -13,23 +13,21 @@
               background-color: grey;
             }
         </style>
-        
+        {% block scripts %}
+        {% endblock scripts %}
         {% block head_block %}
         {% endblock %}
 
     <meta charset="UTF-8">
-    <title>
-        {% block title_block %}
-        CS quiz game
-        {% endblock %}
-    </title>
+
+    <title>CS quiz game |{% block title %}{% endblock title%}</title>
     </head>
         <body>
             <div id="background">
                 <div id="content">
                     <div>
                         <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color:#ffffff">
-                            <a class="navbar-brand" href="/home"><img src="{% static "images/Logo.png"%}" style="width: 100x; height: 50px;"></a>
+                            <a class="navbar-brand" href="/"><img src="{% static "images/Logo.png"%}" style="width: 100x; height: 50px;"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
                             </button>

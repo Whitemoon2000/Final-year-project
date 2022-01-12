@@ -128,5 +128,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS =[
     STATIC_DIR,
-    BASE_DIR / 'quiz'/'static',
+    BASE_DIR/'quiz'/'static',
     ]

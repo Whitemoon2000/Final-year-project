@@ -6,7 +6,7 @@ from django.contrib.auth import login
 
 # Create your views here.
 def home(request):
-    return render(request, 'Home_page.html')
+    return render(request, 'account/Home_page.html')
 
 def Signup(request):
     if request.method =='POST':
@@ -17,7 +17,7 @@ def Signup(request):
             return redirect('Login')
     else :
         form = UserCreationForm()
-    return render(request, 'Signup_page.html',{'form':form})
+    return render(request, 'account/Signup_page.html',{'form':form})
     
 
 def Login(request):
@@ -29,10 +29,10 @@ def Login(request):
             return redirect('home')
     else:
         form = AuthenticationForm()
-    return render(request, 'Login_page.html',{'form':form})
+    return render(request, 'account/Login_page.html',{'form':form})
 
 def profile(request):
     context = {
         'user' : request.user 
     }
-    return render(request, 'Profile_page.html', context)
+    return render(request, 'account/Profile_page.html', context)
