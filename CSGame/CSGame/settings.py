@@ -28,7 +28,7 @@ SECRET_KEY = 'fzwm_gw^9593(a(a^e)30m&=^p=zaa*x-3^2p_hf2hic*0awlt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','csquizgame.herokuapp.com']
 
 
 # Application definition
