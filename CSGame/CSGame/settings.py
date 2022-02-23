@@ -131,3 +131,5 @@ STATICFILES_DIRS =[
     STATIC_DIR,
     BASE_DIR/'quiz'/'static',
     ]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
