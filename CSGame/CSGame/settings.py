@@ -28,7 +28,7 @@ SECRET_KEY = 'fzwm_gw^9593(a(a^e)30m&=^p=zaa*x-3^2p_hf2hic*0awlt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env2.eba-e8knasqt.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['django-env2.eba-e8knasqt.us-west-2.elasticbeanstalk.com','127.0.0.1']
 
 
 # Application definition

@@ -1,11 +1,10 @@
-console.log('hello world quiz')
 const url = window.location.href
 
 const quizBox = document.getElementById('quiz-box')
 const scoreBox = document.getElementById('score-box')
 const resultBox = document.getElementById('result-box')
 const timerBox = document.getElementById('timer-box')
-
+// this is the activate timer for count down time for the quiz.
 const activateTimer = (time) => {
     if (time.toString().length < 2) {
         timerBox.innerHTML = `<b>0${time}:00</b>`
@@ -47,6 +46,9 @@ const activateTimer = (time) => {
     }, 1000)
 }
 
+
+// This is for showing the quiz question on the quiz page
+// Therefore, we dont need to create a lot of template for each quiz 
 $.ajax({
     type: 'GET',
     url: `${url}data`,
@@ -54,12 +56,14 @@ $.ajax({
         const data = response.data
         data.forEach(el => {
             for (const [question, answers] of Object.entries(el)){
+                //This one will shown the question on the quiz page
                 quizBox.innerHTML += `
                     <hr>
                     <div class="mb-2">
                         <b>${question}</b>
                     </div>
                 `
+                // This will shown the choices of the question
                 answers.forEach(answer=>{
                     quizBox.innerHTML += `
                         <div>
@@ -80,7 +84,8 @@ $.ajax({
 const quizForm = document.getElementById('quiz-form')
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
-
+// When the student finish the quiz
+// They need to submit to answer and review the result
 const sendData = () =>{
     const elements = [...document.getElementsByClassName('ans')]
     const data = {}
@@ -102,8 +107,8 @@ const sendData = () =>{
             const results = response.results
             console.log(results)
             quizForm.style.display = 'none'
-
-            scoreBox.innerHTML = `${response.passed ? 'Congratulations! ' : 'Ups..:( '}Your result is ${response.score.toFixed(2)}%`
+            // if they pass the quiz, it will say congratulations. Or student fail the quiz, it will say "Sorry you failed". And then showing them the quiz result
+            scoreBox.innerHTML = `${response.passed ? 'Congratulations! ' : 'Sorry you failed:( '}Your result is ${response.score.toFixed(2)}%`
 
             results.forEach(res=>{
                 const resDiv = document.createElement("div")
@@ -112,7 +117,9 @@ const sendData = () =>{
                     resDiv.innerHTML += question
                     const cls = ['container', 'p-3', 'text-light', 'h6']
                     resDiv.classList.add(...cls)
-
+                    // After they finish the quiz, the correct answer will shown on the template
+                    // if they have not answered the question or do it wrong, it will shown on red boxes
+                    // if they answered the correct answers, it will shown on the green boxes
                     if (resp=='not answered') {
                         resDiv.innerHTML += '- not answered'
                         resDiv.classList.add('bg-danger')

@@ -1,11 +1,13 @@
 from django.db import models
 import random
+
+# It detemine the difficulty for each quiz 
 DIFF_CHOICES = (
     ('easy', 'easy'),
     ('medium', 'medium'),
     ('hard', 'hard'),
 )
-
+# This is the Quiz model for store into database
 class Quiz(models.Model):
     name = models.CharField(max_length=120)
     topic = models.CharField(max_length=120)
@@ -16,7 +18,7 @@ class Quiz(models.Model):
 
     def __str__(self):
         return f"{self.name}-{self.topic}"
-
+    # It will randomly get the question from the database
     def get_questions(self):
         questions = list(self.question_set.all())
         random.shuffle(questions)

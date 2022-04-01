@@ -1,4 +1,3 @@
-console.log('hello world quiz(main)')
 const modalBtns = [...document.getElementsByClassName('modal-button')]
 const modalBody = document.getElementById('modal-body-confirm')
 const startBtn = document.getElementById('start-button')
@@ -6,13 +5,14 @@ const startBtn = document.getElementById('start-button')
 const url = window.location.href
 
 modalBtns.forEach(modalBtn=> modalBtn.addEventListener('click', ()=>{
+    //This the info of each quiz
     const pk = modalBtn.getAttribute('data-pk')
     const name = modalBtn.getAttribute('data-quiz')
     const numQuestions = modalBtn.getAttribute('data-questions')
     const difficulty = modalBtn.getAttribute('data-difficulty')
     const scoreToPass = modalBtn.getAttribute('data-pass')
     const time = modalBtn.getAttribute('data-time')
-
+    // when the student select the quiz, it will pop out the info of the quiz.
     modalBody.innerHTML = `
         <div class="h5 mb-3">Are you sure you want to begin "<b>${name}</b>"?</div>
         <div class="text-muted">
